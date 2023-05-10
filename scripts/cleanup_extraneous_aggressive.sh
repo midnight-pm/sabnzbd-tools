@@ -214,6 +214,7 @@ else
 		-iname "*.exe" \
 		-o -iname "*.jpg" \
 		-o -iname "*.html" \
+		-o -iname "*.par2" \
 		-o -iname "*.sfv" \
 		-o -iname "*.srr" \
 		-o -iname "*.url" \
