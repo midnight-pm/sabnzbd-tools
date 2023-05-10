@@ -52,32 +52,32 @@ SABNZBD_JOBDIR=${SAB_COMPLETE_DIR}
 # Test Parameters
 if [ -z "$SABNZBD_JOB_ID" ]
 then
-	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Job ID (\${SAB_NZO_ID})."
+	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Job ID (\e[1;33m\${SAB_NZO_ID}\e[0m)."
 	exit 1
 fi
 if [ -z "$SABNZBD_JOBNME" ]
 then
-	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Job Final Name (\${SAB_FINAL_NAME})."
+	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Job Final Name (\e[1;33m\${SAB_FINAL_NAME}\e[0m)."
 	exit 1
 fi
 if [ -z "$SABNZBD_JOBSTS" ]
 then
-	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Status (\${SAB_STATUS})."
+	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Status (\e[1;33m\${SAB_STATUS}\e[0m)."
 	exit 1
 fi
 if [ -z "$SABNZBD_JOB_PP" ]
 then
-	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Job Post-Processing Type (\${SAB_PP})."
+	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Job Post-Processing Type (\e[1;33m\${SAB_PP}\e[0m)."
 	exit 1
 fi
 if [ -z "$SABNZBD_JOBPPS" ]
 then
-	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Job Post-Processing Status (\${SAB_PP_STATUS})."
+	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing SABnzbd Job Post-Processing Status (\e[1;33m\${SAB_PP_STATUS}\e[0m)."
 	exit 1
 fi
 if [ -z "$SABNZBD_JOBDIR" ]
 then
-	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing Completed SABnzbd Job Directory (\${SAB_COMPLETE_DIR})."
+	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Missing Completed SABnzbd Job Directory (\e[1;33m\${SAB_COMPLETE_DIR}\e[0m)."
 	exit 1
 fi
 
