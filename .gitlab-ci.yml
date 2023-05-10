@@ -9,5 +9,5 @@ sabnzbd-tools-update:
   script:
       - echo "Retrieving Updated Git Configuration from Repository"
       - echo "Executing script."
-      - bash $HOME/sabnzbd/update
+      - bash $HOME/sabnzbd/update.sh
 
