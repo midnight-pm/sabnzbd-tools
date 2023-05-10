@@ -169,6 +169,7 @@ then
 
 	# Remove sample files, proof files, and associated directories.
 	if [ "$REMOVE_SAMPLE_PROOFF" = "true" ]
+	then
 		echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Searching for and attempting to remove sample and proof files."
 		find "$SABNZBD_JOBDIR/" -type f \( \
 		-iname "*.sample.mkv" \
@@ -190,6 +191,7 @@ then
 
 	# Remove sample directories and proof directories.
 	if [ "$REMOVE_SAMPLE_PROOFD" = "true" ]
+	then
 		echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Searching for and attempting to remove sample and proof directories."
 		find "$SABNZBD_JOBDIR/" -type d \( \
 		-iname "sample" \
@@ -225,7 +227,8 @@ else
 
 	# Remove sample files and proof files.
 	if [ "$REMOVE_SAMPLE_PROOFF" = "true" ]
-	echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Searching for and attempting to remove sample and proof files."
+	then
+		echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Searching for and attempting to remove sample and proof files."
 		find "$SABNZBD_JOBDIR/" -type f \( \
 		-iname "*.sample.mkv" \
 		-o -iname "*.sample.mp4" \
@@ -246,6 +249,7 @@ else
 
 	# Remove sample directories and proof directories.
 	if [ "$REMOVE_SAMPLE_PROOFD" = "true" ]
+	then
 		echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Searching for and attempting to remove sample and proof directories."
 		find "$SABNZBD_JOBDIR/" -type d \( \
 		-iname "sample" \
