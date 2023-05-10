@@ -265,4 +265,5 @@ else
 fi
 
 echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Exiting."
+echo "Script Processing Finished"
 exit 0
