@@ -95,8 +95,10 @@ else
 		then
 			echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] SABnzbd indicates that this job failed verification during post-processing."
 		elif [ $SABNZBD_JOBPPS -eq 2 ]
+		then
 			echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] SABnzbd indicates that this job failed to properly unpack during post-processing."
 		elif [ $SABNZBD_JOBPPS -eq 3 ]
+		then
 			echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] SABnzbd indicates that this job failed verification and failed to properly unpack during post-processing."
 		else
 			echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] SABnzbd indicates that post-processing for this job was not successful."
