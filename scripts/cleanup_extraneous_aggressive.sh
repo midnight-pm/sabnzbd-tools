@@ -156,6 +156,8 @@ then
 		-iname "*.exe" \
 		-o -iname "*.jpg" \
 		-o -iname "*.html" \
+		-o -iname "*.par2" \
+		-o -iname "*.nzb" \
 		-o -iname "*.sfv" \
 		-o -iname "*.srr" \
 		-o -iname "*.url" \
@@ -215,6 +217,7 @@ else
 		-o -iname "*.jpg" \
 		-o -iname "*.html" \
 		-o -iname "*.par2" \
+		-o -iname "*.nzb" \
 		-o -iname "*.sfv" \
 		-o -iname "*.srr" \
 		-o -iname "*.url" \
