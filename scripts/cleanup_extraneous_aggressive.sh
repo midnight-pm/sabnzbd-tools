@@ -153,7 +153,8 @@ then
 	then
 		echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Searching for and attempting to remove files with unwanted extensions."
 		find "$SABNZBD_JOBDIR/" -type f \( \
-		-iname "*.exe" \
+		-iname "*.diz" \
+		-o -iname "*.exe" \
 		-o -iname "*.jpg" \
 		-o -iname "*.html" \
 		-o -iname "*.par2" \
@@ -213,7 +214,8 @@ else
 	then
 		echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Searching for and attempting to remove files with unwanted extensions."
 		find "$SABNZBD_JOBDIR/" -type f \( \
-		-iname "*.exe" \
+		-iname "*.diz" \
+		-o -iname "*.exe" \
 		-o -iname "*.jpg" \
 		-o -iname "*.html" \
 		-o -iname "*.par2" \
