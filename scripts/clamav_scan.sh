@@ -177,26 +177,32 @@ then
 	# Verbose output.
 	$CLAMAV_SCAN_PATH -i -l "$LOGFILE" -r "$SABNZBD_JOBDIR"
 	
-	$CLAMAV_SCAN_STTS=$?
+	CLAMAV_SCAN_STTS=$?
 else
 	# Quiet output.
 	$CLAMAV_SCAN_PATH -i -l "$LOGFILE" -r "$SABNZBD_JOBDIR" 2>&1 > /dev/null
 
-	$CLAMAV_SCAN_STTS=$?
+	CLAMAV_SCAN_STTS=$?
 fi
 
-if [ $CLAMAV_SCAN_STTS -ne 0 ]
+if [ $CLAMAV_SCAN_STTS -eq 0 ]
 then
-	echo -e "[$(timestamp)][\e[1;33mWARNING\e[0m] This directory may have infected contnets. [$CLAMAV_SCAN_STTS]"
-	mv "$SABNZBD_JOBDIR" "$PROBLEMATIC_DIR/"
-
-	echo "Potentially Infected Job [ClamAV]"
-	exit 0
-else
 	echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Scan completed. [$CLAMAV_SCAN_STTS]"
 
-	echo "Scan Complete [ClamAV]"
+	echo "Scan Complete. No Malware Detected. [ClamAV]"
 	exit 0
+elif [ $CLAMAV_SCAN_STTS -eq 1 ]
+then
+	echo -e "[$(timestamp)][\e[1;31mWARNING\e[0m] This directory may have infected contnets. [$CLAMAV_SCAN_STTS]"
+	mv "$SABNZBD_JOBDIR" "$PROBLEMATIC_DIR/"
+
+	echo "Scan Complete. Potentially Infected Job [ClamAV]"
+	exit 0
+else
+	echo -e "[$(timestamp)][\e[1;31mERROR\e[0m] Scan error. [$CLAMAV_SCAN_STTS]"
+
+	echo "Scan Error [ClamAV]"
+	exit 1
 fi
 
 # The script should never actually get here.
