@@ -177,12 +177,12 @@ LOGFILE="$SABNZBD_JOBDIR/clamav_scan.log"
 if [ "$VERBOSE_OUTPUT" = "true" ]
 then
 	# Verbose output.
-	$CLAMAV_SCAN_PATH -v -a -l "$LOGFILE" -r "$SABNZBD_JOBDIR"
+	$CLAMAV_SCAN_PATH -v -l "$LOGFILE" -r "$SABNZBD_JOBDIR"
 	
 	CLAMAV_SCAN_STTS=$?
 else
 	# Quiet output.
-	$CLAMAV_SCAN_PATH -v -a -l "$LOGFILE" -r "$SABNZBD_JOBDIR" 2>&1 > /dev/null
+	$CLAMAV_SCAN_PATH -v -l "$LOGFILE" -r "$SABNZBD_JOBDIR" 2>&1 > /dev/null
 
 	CLAMAV_SCAN_STTS=$?
 fi
