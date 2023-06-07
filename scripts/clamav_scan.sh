@@ -171,6 +171,8 @@ else
 	exit 1
 fi
 
+echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Starting Scan with ClamAV."
+
 LOGFILE="$SABNZBD_JOBDIR/clamav_scan.log"
 if [ "$VERBOSE_OUTPUT" = "true" ]
 then
@@ -193,7 +195,7 @@ then
 	exit 0
 elif [ $CLAMAV_SCAN_STTS -eq 1 ]
 then
-	echo -e "[$(timestamp)][\e[1;31mWARNING\e[0m] This directory may have infected contnets. [$CLAMAV_SCAN_STTS]"
+	echo -e "[$(timestamp)][\e[1;31mWARNING\e[0m] This directory may have infected contents. [$CLAMAV_SCAN_STTS]"
 	mv "$SABNZBD_JOBDIR" "$PROBLEMATIC_DIR/"
 
 	echo "Scan Complete. Potentially Infected Job [ClamAV]"
