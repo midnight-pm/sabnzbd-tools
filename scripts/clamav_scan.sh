@@ -1,5 +1,22 @@
 #!/bin/bash
 ########################################################################################
+#
+# This is a script intended to be used by SABnzbd to trigger a scan of a job's directory
+# contents by ClamAV during post-processing.
+# This was written in bash, but may run under Z shell and possibly under /bin/sh without
+# error - though that is not gauranteed.
+#
+# Requirements:
+# * ClamAV
+# * SABnzbd
+#
+# An installation of ClamAV can be done using any given preferred package manager.
+# At a minimum, installing clamav and clamav-update (or clamav-freshclam), and then
+# running the latter as a service should be enough to get things running.
+#
+# This script will need to be placed within the scripts directory specified in SABnzbd.
+#
+########################################################################################
 # User Settings
 ########################################################################################
 
@@ -8,7 +25,7 @@ VERBOSE_OUTPUT="true"
 PROBLEMATIC_DIR="${HOME}/data/Suspicious/"
 
 CLAMSCAN_BNRY="clamscan"         # * ClamAV Binary Name
-CLAMSCAN_PATH="/usr/bin"        # * ClamAV Binary Directory
+CLAMSCAN_PATH="/usr/bin"         # * ClamAV Binary Directory
 
 ########################################################################################
 #
