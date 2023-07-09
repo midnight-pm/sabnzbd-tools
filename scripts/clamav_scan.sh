@@ -22,6 +22,7 @@
 
 # Enable Verbose Output?
 VERBOSE_OUTPUT="true"
+LOGGING_OUTPUT="true"
 PROBLEMATIC_DIR="${HOME}/data/Suspicious/"
 
 CLAMSCAN_BNRY="clamscan"         # * ClamAV Binary Name
