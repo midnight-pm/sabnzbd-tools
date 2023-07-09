@@ -19,7 +19,7 @@
 VERBOSE_OUTPUT="true"
 
 # Script Directory Path
-SCRIPT_DIRECTORY="${HOME}/tools/script"
+SCRIPT_DIRECTORY="${HOME}/tools/scripts"
 
 ########################################################################################
 #
