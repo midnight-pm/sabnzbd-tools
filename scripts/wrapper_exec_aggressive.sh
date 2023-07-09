@@ -46,4 +46,9 @@ then
         echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] All scripts that were found have been executed."
 fi
 
+if [ "${VERBOSE_OUTPUT}" = "true" ]
+then
+        echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Script Processing Finished"
+fi
+
 exit
