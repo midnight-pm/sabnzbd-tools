@@ -39,7 +39,7 @@ then
 fi
 
 # Find and execute all scripts with no regard for order.
-find ${SCRIPT_DIRECTORY} \( -name '*.sh' ! -name 'wrapper.sh' \) -exec bash -c {} \;
+find ${SCRIPT_DIRECTORY} \( -name '*.sh' ! -name 'wrapper*.sh' \) -exec bash -c {} \;
 
 if [ "${VERBOSE_OUTPUT}" = "true" ]
 then
