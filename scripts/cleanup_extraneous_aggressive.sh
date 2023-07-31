@@ -242,9 +242,9 @@ else
 		-o -iname "*-sample.mp4" \
 		-o -iname "*_sample.mkv" \
 		-o -iname "*_sample.mp4" \
-		-o -iname "*.proof.mkv" \
-		-o -iname "*_proof.mkv" \
-		-o -iname "*_proof.mp4" \
+		-o -iname "*.proof.jpg" \
+		-o -iname "*_proof.jpg" \
+		-o -iname "*_proof.jpg" \
 		\) -delete
 		find_exec_status=$?
 		if [ $find_exec_status -ne 0 ]
