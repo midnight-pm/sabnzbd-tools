@@ -238,10 +238,21 @@ else
 		find "$SABNZBD_JOBDIR/" -type f \( \
 		-iname "*.sample.mkv" \
 		-o -iname "*.sample.mp4" \
+		-o -iname "*.sample.m4v" \
+		-o -iname "*.sample.wmv" \
+		-o -iname "*.sample.avi" \
+		-o -iname "*.4k-sample.mkv" \
+		-o -iname "*.4k-sample.mp4" \
 		-o -iname "*-sample.mkv" \
 		-o -iname "*-sample.mp4" \
+		-o -iname "*-sample.m4v" \
+		-o -iname "*-sample.wmv" \
+		-o -iname "*-sample.avi" \
 		-o -iname "*_sample.mkv" \
 		-o -iname "*_sample.mp4" \
+		-o -iname "*_sample.m4v" \
+		-o -iname "*_sample.wmv" \
+		-o -iname "*_sample.avi" \
 		-o -iname "*.proof.jpg" \
 		-o -iname "*_proof.jpg" \
 		-o -iname "*_proof.jpg" \
