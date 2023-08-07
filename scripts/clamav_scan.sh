@@ -192,15 +192,22 @@ fi
 echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Starting Scan with ClamAV."
 
 LOGFILE="$SABNZBD_JOBDIR/clamav_scan.log"
+if [ "$LOGGING_OUTPUT" = "true" ]
+then
+	LOGGING="-l '$LOGFILE'"
+else
+	LOGGING=""
+fi
+
 if [ "$VERBOSE_OUTPUT" = "true" ]
 then
 	# Verbose output.
-	$CLAMAV_SCAN_PATH -v -l "$LOGFILE" -r "$SABNZBD_JOBDIR"
+	$CLAMAV_SCAN_PATH -v "$LOGGING" -r "$SABNZBD_JOBDIR"
 	
 	CLAMAV_SCAN_STTS=$?
 else
 	# Quiet output.
-	$CLAMAV_SCAN_PATH -v -l "$LOGFILE" -r "$SABNZBD_JOBDIR" 2>&1 > /dev/null
+	$CLAMAV_SCAN_PATH "$LOGGING" -r "$SABNZBD_JOBDIR" 2>&1 > /dev/null
 
 	CLAMAV_SCAN_STTS=$?
 fi
