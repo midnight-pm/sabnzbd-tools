@@ -200,24 +200,26 @@ fi
 
 echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Starting Scan with ClamAV."
 
-LOGFILE="$SABNZBD_JOBDIR/clamav_scan.log"
+if [ "$LOGGING_OUTPUT" = "true" ]
+then
+	echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Logging disabled."
+	LOGFILE="$SABNZBD_JOBDIR/clamav_scan.log"
+	LOGGING_PARAM="-l \"$LOGFILE\""
+else
+	LOGGING_PARAM=""
+fi
+
 if [ "$VERBOSE_OUTPUT" = "true" ]
 then
 	# Verbose output.
-	sudo $CLAMAV_SCAN_PATH -v -l "$LOGFILE" "$SABNZBD_JOBDIR"
+	sudo $CLAMAV_SCAN_PATH --verbose $LOGGING_PARAM "$SABNZBD_JOBDIR"
 	
 	CLAMAV_SCAN_STTS=$?
 else
 	# Quiet output.
-	sudo $CLAMAV_SCAN_PATH -l "$LOGFILE" "$SABNZBD_JOBDIR" 2>&1 > /dev/null
+	sudo $CLAMAV_SCAN_PATH --quiet $LOGGING_PARAM "$SABNZBD_JOBDIR"
 
 	CLAMAV_SCAN_STTS=$?
-fi
-
-if [ ! "$LOGGING_OUTPUT" = "true" ]
-then
-	echo -e "[$(timestamp)][\e[1;33mNOTICE\e[0m] Logging disabled. Removing log file. [$CLAMAV_SCAN_STTS]"
-	rm -f "$LOGFILE"
 fi
 
 if [ $CLAMAV_SCAN_STTS -eq 0 ]
