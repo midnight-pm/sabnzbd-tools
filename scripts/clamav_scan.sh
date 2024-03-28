@@ -16,6 +16,15 @@
 #
 # This script will need to be placed within the scripts directory specified in SABnzbd.
 #
+# Pre-requisites -- Install ClamAV:
+#     sudo dnf -y install clamav clamd
+#     sudo sed -i -e "/^#*LocalSocket\s/s/^#//" /etc/clamd.d/scan.conf
+#     sudo freshclam
+#     sudo systemctl --now enable clamav-freshclam.service clamd@scan.service
+#     sudo semanage boolean -m -1 antivirus_can_scan_system
+#     sudo touch /etc/sudoers.d/clamdscan
+#     sudo echo "sabnzbd ALL = (ALL) NOPASSWD: /usr/bin/clamdscan" > /etc/sudoers.d/clamdscan
+#
 ########################################################################################
 # User Settings
 ########################################################################################
@@ -25,7 +34,7 @@ VERBOSE_OUTPUT="true"
 LOGGING_OUTPUT="false"
 PROBLEMATIC_DIR="${HOME}/data/Suspicious/"
 
-CLAMSCAN_BNRY="clamscan"         # * ClamAV Binary Name
+CLAMSCAN_BNRY="clamdscan"         # * ClamAV Binary Name
 CLAMSCAN_PATH="/usr/bin"         # * ClamAV Binary Directory
 
 ########################################################################################
@@ -195,12 +204,12 @@ LOGFILE="$SABNZBD_JOBDIR/clamav_scan.log"
 if [ "$VERBOSE_OUTPUT" = "true" ]
 then
 	# Verbose output.
-	$CLAMAV_SCAN_PATH -v -l "$LOGFILE" -r "$SABNZBD_JOBDIR"
+	sudo $CLAMAV_SCAN_PATH -v -l "$LOGFILE" "$SABNZBD_JOBDIR"
 	
 	CLAMAV_SCAN_STTS=$?
 else
 	# Quiet output.
-	$CLAMAV_SCAN_PATH -l "$LOGFILE" -r "$SABNZBD_JOBDIR" 2>&1 > /dev/null
+	sudo $CLAMAV_SCAN_PATH -l "$LOGFILE" "$SABNZBD_JOBDIR" 2>&1 > /dev/null
 
 	CLAMAV_SCAN_STTS=$?
 fi
